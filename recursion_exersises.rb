@@ -98,16 +98,16 @@ def deep_dup(ele)
     end 
 end
 
-thing = [[1, 2], [3,4]]
+# thing = [[1, 2], [3,4]]
 
-p deep_dup(1)
-p deep_dup([1, 2, 3, 4])
-test = deep_dup(thing)
-p deep_dup([1, [2], [3, [4]]])
+# p deep_dup(1)
+# p deep_dup([1, 2, 3, 4])
+# test = deep_dup(thing)
+# p deep_dup([1, [2], [3, [4]]])
 
 
-p thing.object_id 
-p test.object_id 
+# p thing.object_id 
+# p test.object_id 
 
 
 
@@ -170,22 +170,22 @@ puts
 puts "---------------------------------------------"
 puts
 
-def binary_search(array, target) 
-    middle_index =(array.length) / 2 
-    middle = array[(array.length)/2]
-    if array.length < 1 
-        return nil
-    end 
-    if array.length == 1 && 
+# def binary_search(array, target) 
+#     middle_index =(array.length) / 2 
+#     middle = array[(array.length)/2]
+#     if array.length < 1 
+#         return nil
+#     end 
+#     if array.length == 1 && 
   
-    if middle == target
-        return middle_index
-    elsif middle > target 
-        binary_search(array[(middle_index+1)..-1], target)
-    else  
-        binary_search(array[0..(middle_index-1)], target)
-    end
-end
+#     if middle == target
+#         return middle_index
+#     elsif middle > target 
+#         binary_search(array[(middle_index+1)..-1], target)
+#     else  
+#         binary_search(array[0..(middle_index-1)], target)
+#     end
+# end
 
 
 # p binary_search([1, 2, 3], 1) # => 0
@@ -195,6 +195,50 @@ end
 # p binary_search([1, 2, 3, 4, 5, 6], 6) # => 5
 # p binary_search([1, 2, 3, 4, 5, 6], 0) # => nil
 # p binary_search([1, 2, 3, 4, 5, 7], 6) # => nil
+def merge_sort(arr, newarr) 
+    
+    if arr.length == 1 
+        newarr << arr
+    end
+    if arr.length > 1
+
+        middle = arr.length / 2 
+        half1 = arr[0...middle]
+        half2 = arr[middle..-1]
+
+        merge_sort(half1, newarr)
+        merge_sort(half2, newarr)
+    end
+    return sorter(newarr)
+end 
+
+def sorter(twodarr)
+    i = 0 
+    newarr = []
+    while i < twodarr.length 
+        if i.even?
+            if twodarr[i][0] > twodarr[i+1][0]
+                newarr <<[twodarr[i], twodarr[i+1]]
+                i+=1
+            else
+                newarr <<[twodarr[i+1], twodarr[i]]
+                i+=1
+            end
+        end
+    end
+    newarr
+end
+
+            
+
+
+arr = [38, 27, 43, 3, 9, 82, 10]
+
+# p merge_sort(arr, [])
+p sorter([[38], [27], [43], [3], [9], [82], [10]])
+
+
+
 
 
 
