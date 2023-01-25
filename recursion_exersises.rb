@@ -170,22 +170,22 @@ puts
 puts "---------------------------------------------"
 puts
 
-# def binary_search(array, target) 
-#     middle_index =(array.length) / 2 
-#     middle = array[(array.length)/2]
-#     if array.length < 1 
-#         return nil
-#     end 
-#     if array.length == 1 && 
+def binary_search(array, target) 
+    middle_index =(array.length) / 2 
+    middle = array[(array.length)/2]
+    if array.length < 1 
+        return nil
+    end 
+    if array.length == 1 && 
   
-#     if middle == target
-#         return middle_index
-#     elsif middle > target 
-#         binary_search(array[(middle_index+1)..-1], target)
-#     else  
-#         binary_search(array[0..(middle_index-1)], target)
-#     end
-# end
+    if middle == target
+        return middle_index
+    elsif middle > target 
+        binary_search(array[(middle_index+1)..-1], target)
+    else  
+        binary_search(array[0..(middle_index-1)], target)
+    end
+end
 
 
 # p binary_search([1, 2, 3], 1) # => 0
@@ -195,6 +195,8 @@ puts
 # p binary_search([1, 2, 3, 4, 5, 6], 6) # => 5
 # p binary_search([1, 2, 3, 4, 5, 6], 0) # => nil
 # p binary_search([1, 2, 3, 4, 5, 7], 6) # => nil
+
+
 
 
 
